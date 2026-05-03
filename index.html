@@ -2,223 +2,147 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Préstamos - Black Financial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Finance Billy - Préstamos</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="estilos2.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos3.css">
 </head>
 <body>
-    <!-- Navegación -->
+
     <nav class="navbar">
         <div class="container">
             <div class="logo">
                 <span class="logo-icon">◆</span>
                 <span class="nombre-empresa"></span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#calculadora">Calculadora</a></li>
-                <li><a href="#ejemplos">Ejemplos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+            <a href="pago.html" class="nav-link">💳 Pagar</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Préstamos Simples y Transparentes</h1>
-                <p class="hero-subtitle">Interés del <strong>1% semanal</strong> • Sin complicaciones • Pago flexible</p>
-                <p class="estudiante-info">Estudiante de <strong>Finanzas</strong> en la <strong>Universidad de Guayaquil</strong></p>
-                <a href="#calculadora" class="btn-primary">Calcular mi Préstamo</a>
-            </div>
+            <h1>Préstamos Simples y Transparentes</h1>
+            <p class="hero-subtitle">Interés del <strong>1% semanal</strong></p>
+            <p class="estudiante-info">Billy Michael - Finanzas U. de Guayaquil</p>
+            <a href="#calculadora" class="btn-primary">Calcular Préstamo</a>
+            <a href="pago.html" class="btn-secondary">📱 Solicitar por WhatsApp</a>
         </div>
     </section>
 
-    <!-- Calculadora -->
     <section id="calculadora" class="calculadora-section">
         <div class="container">
-            <h2 class="section-title">Calculadora de Préstamos</h2>
-            <p class="section-desc">Ingresa los datos y conoce tu plan de pagos al instante</p>
+            <h2 class="section-title">Calculadora</h2>
+            <p class="section-desc">Monto $50 - $300 | 1 - 15 semanas</p>
             
             <div class="calc-card">
-                <div class="calc-inputs">
-                    <div class="input-group">
-                        <label for="monto">Monto del Préstamo</label>
-                        <div class="input-wrapper">
-                            <span class="currency">$</span>
-                            <input type="number" id="monto" min="50" max="300" placeholder="50 - 300" required>
-                        </div>
-                        <span class="hint">Mínimo $50 - Máximo $300</span>
+                <div class="input-group">
+                    <label>Monto del Préstamo</label>
+                    <div class="input-wrapper">
+                        <span class="currency">$</span>
+                        <input type="number" id="monto" min="50" max="300" placeholder="50 - 300">
                     </div>
-
-                    <div class="input-group">
-                        <label for="semanas">Duración (Semanas)</label>
-                        <div class="input-wrapper">
-                            <input type="number" id="semanas" min="1" max="15" placeholder="1 - 15" required>
-                            <span class="unit">semanas</span>
-                        </div>
-                        <span class="hint">De 1 a 15 semanas</span>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Tasa de Interés</label>
-                        <div class="tasa-display">
-                            <span class="tasa-valor">1%</span>
-                            <span class="tasa-tipo">Interés Simple Semanal</span>
-                        </div>
-                    </div>
-
-                    <button id="btn-calcular" class="btn-calcular">
-                        <span>Calcular Préstamo</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 18l6-6-6-6"/>
-                        </svg>
-                    </button>
+                    <span class="hint">Mínimo $50 - Máximo $300</span>
                 </div>
 
+                <div class="input-group">
+                    <label>Duración (Semanas)</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="semanas" min="1" max="15" placeholder="1 - 15">
+                        <span class="unit">sem</span>
+                    </div>
+                    <span class="hint">De 1 a 15 semanas</span>
+                </div>
+
+                <div class="tasa-display">
+                    <span class="tasa-valor">1%</span>
+                    <span class="tasa-tipo">Interés Simple Semanal</span>
+                </div>
+
+                <button id="btn-calcular" class="btn-calcular">
+                    Calcular Préstamo →
+                </button>
+
                 <div id="resultado" class="resultado hidden">
-                    <h3>📊 Resumen de tu Préstamo</h3>
+                    <h3>📊 Resumen</h3>
                     <div class="resultado-grid">
                         <div class="result-item">
-                            <span class="result-label">Monto del Préstamo</span>
+                            <span class="result-label">Monto</span>
                             <span class="result-value" id="res-monto">$0</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">Duración</span>
-                            <span class="result-value" id="res-semanas">0 semanas</span>
+                            <span class="result-label">Semanas</span>
+                            <span class="result-value" id="res-semanas">0</span>
                         </div>
                         <div class="result-item highlight">
-                            <span class="result-label">Interés Total</span>
+                            <span class="result-label">Interés</span>
                             <span class="result-value" id="res-interes">$0</span>
                             <span class="result-detail" id="res-interes-detalle"></span>
                         </div>
                         <div class="result-item highlight-gold">
-                            <span class="result-label">Cuota Semanal</span>
+                            <span class="result-label">Cuota/Sem</span>
                             <span class="result-value" id="res-cuota">$0</span>
                         </div>
                         <div class="result-item total">
-                            <span class="result-label">Total a Pagar</span>
+                            <span class="result-label">Total</span>
                             <span class="result-value" id="res-total">$0</span>
                         </div>
                     </div>
                     
                     <div class="tabla-container">
-                        <h4>📅 Cronograma de Pagos</h4>
-                        <table class="tabla-pagos">
-                            <thead>
-                                <tr>
-                                    <th>Semana</th>
-                                    <th>Cuota</th>
-                                    <th>Capital</th>
-                                    <th>Interés</th>
-                                    <th>Saldo</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabla-body">
-                            </tbody>
-                        </table>
+                        <h4>📅 Cronograma</h4>
+                        <div class="tabla-scroll">
+                            <table class="tabla-pagos">
+                                <thead>
+                                    <tr><th>Sem</th><th>Cuota</th><th>Cap</th><th>Int</th><th>Saldo</th></tr>
+                                </thead>
+                                <tbody id="tabla-body"></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ejemplos -->
     <section id="ejemplos" class="ejemplos-section">
         <div class="container">
-            <h2 class="section-title">Ejemplos Prácticos</h2>
-            <p class="section-desc">Así funcionan nuestros préstamos. Mira estos casos reales:</p>
+            <h2 class="section-title">Ejemplos</h2>
             
-            <div class="ejemplos-grid">
-                <div class="ejemplo-card">
-                    <div class="ejemplo-header">
-                        <span class="ejemplo-num">01</span>
-                        <h3>Préstamo Pequeño</h3>
-                    </div>
-                    <div class="ejemplo-body">
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Monto:</span>
-                            <span class="dato-valor">$50</span>
-                        </div>
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Duración:</span>
-                            <span class="dato-valor">4 semanas</span>
-                        </div>
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Interés:</span>
-                            <span class="dato-valor">$2 (1% x 4)</span>
-                        </div>
-                        <div class="ejemplo-dato highlight">
-                            <span class="dato-label">Cuota semanal:</span>
-                            <span class="dato-valor">$13</span>
-                        </div>
-                        <div class="ejemplo-total">
-                            <span>Total a pagar:</span>
-                            <strong>$52</strong>
-                        </div>
-                    </div>
+            <div class="ejemplo-card featured">
+                <div class="ejemplo-badge">Popular</div>
+                <div class="ejemplo-header">
+                    <span class="ejemplo-num">02</span>
+                    <h3>$100 a 10 semanas</h3>
                 </div>
-
-                <div class="ejemplo-card featured">
-                    <div class="ejemplo-badge">Más Popular</div>
-                    <div class="ejemplo-header">
-                        <span class="ejemplo-num">02</span>
-                        <h3>Préstamo Medio</h3>
-                    </div>
-                    <div class="ejemplo-body">
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Monto:</span>
-                            <span class="dato-valor">$100</span>
-                        </div>
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Duración:</span>
-                            <span class="dato-valor">10 semanas</span>
-                        </div>
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Interés:</span>
-                            <span class="dato-valor">$10 (1% x 10)</span>
-                        </div>
-                        <div class="ejemplo-dato highlight">
-                            <span class="dato-label">Cuota semanal:</span>
-                            <span class="dato-valor">$11</span>
-                        </div>
-                        <div class="ejemplo-total">
-                            <span>Total a pagar:</span>
-                            <strong>$110</strong>
-                        </div>
-                    </div>
+                <div class="ejemplo-body">
+                    <div class="ejemplo-dato"><span>Interés:</span><span>$10</span></div>
+                    <div class="ejemplo-dato highlight"><span>Cuota:</span><span>$11/semana</span></div>
+                    <div class="ejemplo-total"><span>Total:</span><strong>$110</strong></div>
                 </div>
+            </div>
 
-                <div class="ejemplo-card">
-                    <div class="ejemplo-header">
-                        <span class="ejemplo-num">03</span>
-                        <h3>Préstamo Grande</h3>
-                    </div>
-                    <div class="ejemplo-body">
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Monto:</span>
-                            <span class="dato-valor">$300</span>
-                        </div>
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Duración:</span>
-                            <span class="dato-valor">15 semanas</span>
-                        </div>
-                        <div class="ejemplo-dato">
-                            <span class="dato-label">Interés:</span>
-                            <span class="dato-valor">$45 (1% x 15)</span>
-                        </div>
-                        <div class="ejemplo-dato highlight">
-                            <span class="dato-label">Cuota semanal:</span>
-                            <span class="dato-valor">$23</span>
-                        </div>
-                        <div class="ejemplo-total">
-                            <span>Total a pagar:</span>
-                            <strong>$345</strong>
-                        </div>
-                    </div>
+            <div class="ejemplo-card">
+                <div class="ejemplo-header">
+                    <span class="ejemplo-num">01</span>
+                    <h3>$50 a 4 semanas</h3>
+                </div>
+                <div class="ejemplo-body">
+                    <div class="ejemplo-dato"><span>Interés:</span><span>$2</span></div>
+                    <div class="ejemplo-dato highlight"><span>Cuota:</span><span>$13/semana</span></div>
+                    <div class="ejemplo-total"><span>Total:</span><strong>$52</strong></div>
+                </div>
+            </div>
+
+            <div class="ejemplo-card">
+                <div class="ejemplo-header">
+                    <span class="ejemplo-num">03</span>
+                    <h3>$300 a 15 semanas</h3>
+                </div>
+                <div class="ejemplo-body">
+                    <div class="ejemplo-dato"><span>Interés:</span><span>$45</span></div>
+                    <div class="ejemplo-dato highlight"><span>Cuota:</span><span>$23/semana</span></div>
+                    <div class="ejemplo-total"><span>Total:</span><strong>$345</strong></div>
                 </div>
             </div>
 
@@ -226,60 +150,43 @@
                 <div class="info-card">
                     <div class="info-icon">💡</div>
                     <h3>¿Cómo calculamos?</h3>
-                    <p><strong>Interés Simple:</strong> El interés se calcula solo sobre el capital prestado.</p>
+                    <p>Interés Simple: solo sobre el capital.</p>
                     <ul>
                         <li>Interés = Monto × 1% × Semanas</li>
-                        <li>Cuota Semanal = (Monto + Interés) ÷ Semanas</li>
-                        <li>Total = Monto + Interés</li>
+                        <li>Cuota = (Monto + Interés) ÷ Semanas</li>
                     </ul>
                 </div>
-                
                 <div class="info-card">
                     <div class="info-icon">✅</div>
-                    <h3>¿Por qué elegirnos?</h3>
+                    <h3>Ventajas</h3>
                     <ul class="benefits-list">
-                        <li>✓ Sin costos ocultos</li>
-                        <li>✓ Aprobación inmediata</li>
-                        <li>✓ Pagos semanales flexibles</li>
-                        <li>✓ Interés fijo del 1% semanal</li>
-                        <li>✓ Montos desde $50 hasta $300</li>
+                        <li>Sin costos ocultos</li>
+                        <li>Aprobación inmediata</li>
+                        <li>Pagos semanales</li>
+                        <li>Montos $50 - $300</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
     <section id="contacto" class="contacto-section">
         <div class="container">
-            <h2 class="section-title">¿Tienes Dudas?</h2>
+            <h2 class="section-title">¿Dudas?</h2>
             <div class="contacto-card">
-                <p>Estoy aquí para ayudarte con tu préstamo. Como estudiante de Finanzas en la Universidad de Guayaquil, entiendo tus necesidades.</p>
-                <div class="contacto-info">
-                    <div class="contacto-item">
-                        <span class="contacto-icon">👤</span>
-                        <span class="nombre-contacto">Billy Michael</span>
-                    </div>
-                    <div class="contacto-item">
-                        <span class="contacto-icon">🎓</span>
-                        <span>Estudiante de Finanzas - U. de Guayaquil</span>
-                    </div>
-                </div>
+                <p>Billy Michael - Estudiante de Finanzas U. de Guayaquil</p>
+                <a href="https://wa.me/593995788404" class="btn-whatsapp-mini">💬 0995788404</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo-icon">◆</span>
-                    <span class="nombre-empresa"></span>
-                </div>
-                <p class="footer-text">Soluciones financieras simples y transparentes</p>
-                <p class="footer-copy">© 2026 <span class="nombre-footer"></span>. Todos los derechos reservados.</p>
+            <div class="footer-brand">
+                <span class="logo-icon">◆</span>
+                <span class="nombre-empresa"></span>
             </div>
+            <p class="footer-copy">© 2026 <span class="nombre-footer"></span></p>
         </div>
     </footer>
 
