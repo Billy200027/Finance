@@ -1,0 +1,296 @@
+/* ============================================
+   ESTILOS EXCLUSIVOS PARA PAGO.HTML
+   ============================================ */
+
+.nav-link {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+}
+
+/* Botón secundario en hero */
+.btn-secondary {
+    display: block;
+    background: transparent;
+    color: var(--blanco);
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid var(--dorado);
+    margin: 12px auto 0;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+}
+
+.btn-secondary:active {
+    background: rgba(201, 162, 39, 0.2);
+}
+
+/* Pasos */
+.pasos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.paso-card {
+    background: var(--blanco);
+    border-radius: 14px;
+    padding: 20px 16px 20px 56px;
+    text-align: left;
+    border: 2px solid var(--gris-claro);
+    position: relative;
+}
+
+.paso-num {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--vino);
+    color: var(--blanco);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.paso-icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.paso-card h3 {
+    color: var(--vino);
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.paso-card p {
+    color: var(--gris);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Botón WhatsApp grande */
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #25D366;
+    color: var(--blanco);
+    padding: 16px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-family: inherit;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:active {
+    transform: scale(0.98);
+}
+
+.wa-icon {
+    font-size: 1.6rem;
+}
+
+.wa-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.wa-text strong {
+    font-size: 1rem;
+}
+
+.wa-text small {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Botón WhatsApp mini */
+.btn-whatsapp-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: var(--blanco);
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 12px;
+    font-size: 0.95rem;
+}
+
+/* Preview mensaje WhatsApp */
+.mensaje-preview {
+    background: #E5DDD5;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.mensaje-header {
+    background: #075E54;
+    color: var(--blanco);
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.mensaje-body {
+    padding: 16px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--gris-oscuro);
+    background: #fff;
+    margin: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Info box */
+.info-box {
+    background: #FFF8E1;
+    border: 1px solid #FFE082;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.info-box h4 {
+    color: var(--vino);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.info-box p {
+    color: var(--gris-oscuro);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.info-box ul {
+    list-style: none;
+    margin: 8px 0;
+}
+
+.info-box ul li {
+    padding: 3px 0;
+    font-size: 0.85rem;
+    color: var(--gris-oscuro);
+}
+
+/* Tarjetas de banco */
+.banco-card {
+    background: var(--blanco);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid var(--gris-claro);
+}
+
+.banco-header {
+    padding: 14px 16px;
+    color: var(--blanco);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.banco-logo {
+    font-size: 1.3rem;
+}
+
+.banco-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.banco-body {
+    padding: 12px 16px;
+}
+
+.banco-dato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gris-claro);
+    font-size: 0.8rem;
+}
+
+.banco-dato:last-child {
+    border-bottom: none;
+}
+
+.banco-dato span {
+    color: var(--gris);
+    flex-shrink: 0;
+    margin-right: 8px;
+}
+
+.banco-dato strong {
+    color: var(--gris-oscuro);
+    text-align: right;
+    word-break: break-word;
+    font-size: 0.85rem;
+}
+
+.banco-dato.highlight {
+    background: #FDF5F5;
+    margin: 6px -16px;
+    padding: 12px 16px;
+    border-bottom: none;
+    border-top: 2px solid var(--vino);
+}
+
+.banco-dato.highlight strong {
+    color: var(--vino);
+    font-size: 1rem;
+}
+
+.btn-copy {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: var(--vino);
+    color: var(--blanco);
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.btn-copy:active {
+    background: var(--vino-oscuro);
+}
+
+/* Tabla scroll */
+.tabla-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
