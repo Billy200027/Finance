@@ -1,0 +1,346 @@
+/* ========================================
+   VARIABLES CSS Y CONFIGURACIÓN GLOBAL (:root)
+   ======================================== */
+:root {
+    /* Paleta principal inspirada en el color vino elegante */
+    --color-primary: #722F37;          /* Color vino principal */
+    --color-primary-dark: #552229;     /* Tono vino más oscuro para hover */
+    --color-primary-light: #F9F2F3;    /* Tono vino muy suave para fondos de tarjetas */
+    --color-accent: #9A3B44;           /* Color de acento secundario */
+    
+    /* Superficies y fondos */
+    --color-background: #F8F5F5;       /* Fondo general de la página */
+    --color-surface: #FFFFFF;          /* Fondo de tarjetas y contenedores blancos */
+    
+    /* Textos */
+    --color-text: #2C2224;             /* Texto principal oscuro con matiz cálido */
+    --color-text-muted: #6E5E62;       /* Texto secundario o descriptivo */
+    
+    /* Estados y retroalimentación */
+    --color-success: #2E7D32;          /* Verde elegante para éxito */
+    --color-success-bg: #EDF7ED;       /* Fondo suave para éxito */
+    --color-error: #C62828;            /* Rojo para errores */
+    --color-error-bg: #FDEDED;         /* Fondo suave para error */
+    
+    /* Bordes y radios */
+    --radius-small: 6px;
+    --radius-medium: 12px;
+    --radius-large: 20px;
+    --border-color: #E2D7D9;
+    
+    /* Dimensiones y transiciones */
+    --button-height: 48px;
+    --transition-speed: 0.3s ease;
+    --shadow-subtle: 0 4px 20px rgba(114, 47, 55, 0.08);
+}
+
+/* ========================================
+   RESET Y ESTILOS BASE
+   ======================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   ESTRUCTURA DE CONTENEDORES (.app-container)
+   ======================================== */
+.app-container {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.app-header {
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.logo-icon {
+    font-size: 28px;
+    background-color: var(--color-primary-light);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.app-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -0.5px;
+}
+
+.app-subtitle {
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+/* ========================================
+   TARJETAS Y PESTAÑAS (.card, .tab)
+   ======================================== */
+.card {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-subtle);
+    padding: 32px;
+    border: 1px solid rgba(114, 47, 55, 0.06);
+    transition: transform var(--transition-speed);
+}
+
+.tabs {
+    display: flex;
+    background-color: var(--color-background);
+    border-radius: var(--radius-medium);
+    padding: 4px;
+    margin-bottom: 24px;
+    gap: 4px;
+}
+
+.tab {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    border-radius: calc(var(--radius-medium) - 2px);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    font-family: inherit;
+}
+
+.tab:hover {
+    color: var(--color-primary);
+}
+
+.tab-active {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================
+   FORMULARIOS E INPUTS (.form-group, .input)
+   ======================================== */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: fadeIn var(--transition-speed);
+}
+
+.form-section.hidden {
+    display: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.input {
+    height: var(--button-height);
+    padding: 0 16px;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-small);
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    width: 100%;
+}
+
+.input:hover {
+    border-color: var(--color-accent);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.12);
+}
+
+.input.error {
+    border-color: var(--color-error);
+}
+
+.error-text {
+    font-size: 12px;
+    color: var(--color-error);
+    min-height: 16px;
+}
+
+/* ========================================
+   SISTEMA DE BOTONES (.btn, .btn-primary)
+   ======================================== */
+.btn {
+    width: 100%;
+    height: var(--button-height);
+    border: none;
+    border-radius: var(--radius-small);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all var(--transition-speed);
+    font-family: inherit;
+    box-shadow: 0 4px 12px rgba(114, 47, 55, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(114, 47, 55, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(114, 47, 55, 0.2);
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.3);
+}
+
+/* ========================================
+   MENSAJES DE ESTADO (.message)
+   ======================================== */
+.message {
+    padding: 12px 16px;
+    border-radius: var(--radius-small);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeIn var(--transition-speed);
+}
+
+.message.hidden {
+    display: none;
+}
+
+.message-success {
+    background-color: var(--color-success-bg);
+    color: var(--color-success);
+    border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.message-error {
+    background-color: var(--color-error-bg);
+    color: var(--color-error);
+    border: 1px solid rgba(198, 40, 40, 0.2);
+}
+
+/* ========================================
+   INDICADOR DE CARGA (SPINNER)
+   ======================================== */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+.spinner.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   PIE DE PÁGINA Y AUDIO
+   ======================================== */
+.app-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.sound-control {
+    background-color: var(--color-surface);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.sound-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+.sound-label input {
+    cursor: pointer;
+    accent-color: var(--color-primary);
+}
