@@ -2,195 +2,114 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Finance Billy - Préstamos</title>
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="estilos2.css">
-    <link rel="stylesheet" href="estilos3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Billy - Educación Financiera y Acceso</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para una tipografía moderna y agradable -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <span class="logo-icon">◆</span>
-                <span class="nombre-empresa"></span>
+    <div class="app-container">
+        <!-- Cabecera de la aplicación -->
+        <header class="app-header">
+            <div class="logo-container">
+                <div class="logo-icon">💰</div>
+                <h1>Finance Billy</h1>
             </div>
-            <a href="pago.html" class="nav-link">💳 Pagar</a>
-        </div>
-    </nav>
+            <p class="app-subtitle">Tu plataforma educativa de finanzas personales</p>
+        </header>
 
-    <section id="inicio" class="hero">
-        <div class="container">
-            <h1>Préstamos Simples y Transparentes</h1>
-            <p class="hero-subtitle">Interés del <strong>1% semanal</strong></p>
-            <p class="estudiante-info">Billy Michael - Finanzas U. de Guayaquil</p>
-            <a href="#calculadora" class="btn-primary">Calcular Préstamo</a>
-            <a href="pago.html" class="btn-secondary">📱 Solicitar por WhatsApp</a>
-        </div>
-    </section>
+        <!-- Tarjeta principal que contiene el sistema de pestañas y formularios -->
+        <main class="card">
+            <!-- Pestañas de navegación interna (Tabs) -->
+            <div class="tabs" role="tablist">
+                <button id="tabLogin" class="tab tab-active" role="tab" aria-selected="true">Iniciar Sesión</button>
+                <button id="tabRegister" class="tab" role="tab" aria-selected="false">Registrarse</button>
+            </div>
 
-    <section id="calculadora" class="calculadora-section">
-        <div class="container">
-            <h2 class="section-title">Calculadora</h2>
-            <p class="section-desc">Monto $50 - $300 | 1 - 15 semanas</p>
-            
-            <div class="calc-card">
-                <div class="input-group">
-                    <label>Monto del Préstamo</label>
-                    <div class="input-wrapper">
-                        <span class="currency">$</span>
-                        <input type="number" id="monto" min="50" max="300" placeholder="50 - 300">
+            <!-- Contenedor de mensajes globales de éxito o error -->
+            <div id="globalMessage" class="message hidden" aria-live="polite"></div>
+
+            <!-- VISTA 1: Formulario de Inicio de Sesión -->
+            <section id="loginSection" class="form-section">
+                <form id="loginForm" novalidate>
+                    <div class="form-group">
+                        <label for="loginUser">Usuario o ID</label>
+                        <input type="text" id="loginUser" name="loginUser" class="input" placeholder="Ej. billy123" required autocomplete="username">
+                        <span class="error-text" id="loginUserError"></span>
                     </div>
-                    <span class="hint">Mínimo $50 - Máximo $300</span>
-                </div>
 
-                <div class="input-group">
-                    <label>Duración (Semanas)</label>
-                    <div class="input-wrapper">
-                        <input type="number" id="semanas" min="1" max="15" placeholder="1 - 15">
-                        <span class="unit">sem</span>
+                    <div class="form-group">
+                        <label for="loginPassword">Contraseña</label>
+                        <input type="password" id="loginPassword" name="loginPassword" class="input" placeholder="••••••••" required autocomplete="current-password">
+                        <span class="error-text" id="loginPasswordError"></span>
                     </div>
-                    <span class="hint">De 1 a 15 semanas</span>
-                </div>
 
-                <div class="tasa-display">
-                    <span class="tasa-valor">1%</span>
-                    <span class="tasa-tipo">Interés Simple Semanal</span>
-                </div>
+                    <button type="submit" id="loginBtn" class="btn btn-primary">
+                        <span class="btn-text">Iniciar Sesión</span>
+                        <span class="spinner hidden"></span>
+                    </button>
+                </form>
+            </section>
 
-                <button id="btn-calcular" class="btn-calcular">
-                    Calcular Préstamo →
-                </button>
+            <!-- VISTA 2: Formulario de Registro -->
+            <section id="registerSection" class="form-section hidden">
+                <form id="registerForm" novalidate>
+                    <div class="form-group">
+                        <label for="regUser">ID o Usuario</label>
+                        <input type="text" id="regUser" name="regUser" class="input" placeholder="Elige un usuario único" required autocomplete="username">
+                        <span class="error-text" id="regUserError"></span>
+                    </div>
 
-                <div id="resultado" class="resultado hidden">
-                    <h3>📊 Resumen</h3>
-                    <div class="resultado-grid">
-                        <div class="result-item">
-                            <span class="result-label">Monto</span>
-                            <span class="result-value" id="res-monto">$0</span>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regName">Nombre</label>
+                            <input type="text" id="regName" name="regName" class="input" placeholder="Tu nombre" required autocomplete="given-name">
+                            <span class="error-text" id="regNameError"></span>
                         </div>
-                        <div class="result-item">
-                            <span class="result-label">Semanas</span>
-                            <span class="result-value" id="res-semanas">0</span>
-                        </div>
-                        <div class="result-item highlight">
-                            <span class="result-label">Interés</span>
-                            <span class="result-value" id="res-interes">$0</span>
-                            <span class="result-detail" id="res-interes-detalle"></span>
-                        </div>
-                        <div class="result-item highlight-gold">
-                            <span class="result-label">Cuota/Sem</span>
-                            <span class="result-value" id="res-cuota">$0</span>
-                        </div>
-                        <div class="result-item total">
-                            <span class="result-label">Total</span>
-                            <span class="result-value" id="res-total">$0</span>
+                        <div class="form-group">
+                            <label for="regLastName">Apellido</label>
+                            <input type="text" id="regLastName" name="regLastName" class="input" placeholder="Tu apellido" required autocomplete="family-name">
+                            <span class="error-text" id="regLastNameError"></span>
                         </div>
                     </div>
-                    
-                    <div class="tabla-container">
-                        <h4>📅 Cronograma</h4>
-                        <div class="tabla-scroll">
-                            <table class="tabla-pagos">
-                                <thead>
-                                    <tr><th>Sem</th><th>Cuota</th><th>Cap</th><th>Int</th><th>Saldo</th></tr>
-                                </thead>
-                                <tbody id="tabla-body"></tbody>
-                            </table>
-                        </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">Correo Electrónico</label>
+                        <input type="email" id="regEmail" name="regEmail" class="input" placeholder="correo@ejemplo.com" required autocomplete="email">
+                        <span class="error-text" id="regEmailError"></span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="ejemplos" class="ejemplos-section">
-        <div class="container">
-            <h2 class="section-title">Ejemplos</h2>
-            
-            <div class="ejemplo-card featured">
-                <div class="ejemplo-badge">Popular</div>
-                <div class="ejemplo-header">
-                    <span class="ejemplo-num">02</span>
-                    <h3>$100 a 10 semanas</h3>
-                </div>
-                <div class="ejemplo-body">
-                    <div class="ejemplo-dato"><span>Interés:</span><span>$10</span></div>
-                    <div class="ejemplo-dato highlight"><span>Cuota:</span><span>$11/semana</span></div>
-                    <div class="ejemplo-total"><span>Total:</span><strong>$110</strong></div>
-                </div>
-            </div>
+                    <div class="form-group">
+                        <label for="regPassword">Contraseña</label>
+                        <input type="password" id="regPassword" name="regPassword" class="input" placeholder="Mínimo 6 caracteres" required autocomplete="new-password">
+                        <span class="error-text" id="regPasswordError"></span>
+                    </div>
 
-            <div class="ejemplo-card">
-                <div class="ejemplo-header">
-                    <span class="ejemplo-num">01</span>
-                    <h3>$50 a 4 semanas</h3>
-                </div>
-                <div class="ejemplo-body">
-                    <div class="ejemplo-dato"><span>Interés:</span><span>$2</span></div>
-                    <div class="ejemplo-dato highlight"><span>Cuota:</span><span>$13/semana</span></div>
-                    <div class="ejemplo-total"><span>Total:</span><strong>$52</strong></div>
-                </div>
-            </div>
+                    <button type="submit" id="registerBtn" class="btn btn-primary">
+                        <span class="btn-text">Crear Cuenta</span>
+                        <span class="spinner hidden"></span>
+                    </button>
+                </form>
+            </section>
+        </main>
 
-            <div class="ejemplo-card">
-                <div class="ejemplo-header">
-                    <span class="ejemplo-num">03</span>
-                    <h3>$300 a 15 semanas</h3>
-                </div>
-                <div class="ejemplo-body">
-                    <div class="ejemplo-dato"><span>Interés:</span><span>$45</span></div>
-                    <div class="ejemplo-dato highlight"><span>Cuota:</span><span>$23/semana</span></div>
-                    <div class="ejemplo-total"><span>Total:</span><strong>$345</strong></div>
-                </div>
+        <!-- Pie de página con control de sonido opcional y créditos -->
+        <footer class="app-footer">
+            <div class="sound-control">
+                <label for="soundToggle" class="sound-label">
+                    <span>🔊 Efectos de sonido</span>
+                    <input type="checkbox" id="soundToggle" checked>
+                </label>
             </div>
+            <p>© 2026 Finance Billy. Proyecto Educativo Open Source.</p>
+        </footer>
+    </div>
 
-            <div class="info-adicional">
-                <div class="info-card">
-                    <div class="info-icon">💡</div>
-                    <h3>¿Cómo calculamos?</h3>
-                    <p>Interés Simple: solo sobre el capital.</p>
-                    <ul>
-                        <li>Interés = Monto × 1% × Semanas</li>
-                        <li>Cuota = (Monto + Interés) ÷ Semanas</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">✅</div>
-                    <h3>Ventajas</h3>
-                    <ul class="benefits-list">
-                        <li>Sin costos ocultos</li>
-                        <li>Aprobación inmediata</li>
-                        <li>Pagos semanales</li>
-                        <li>Montos $50 - $300</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="contacto-section">
-        <div class="container">
-            <h2 class="section-title">¿Dudas?</h2>
-            <div class="contacto-card">
-                <p>Billy Michael - Estudiante de Finanzas U. de Guayaquil</p>
-                <a href="https://wa.me/593995788404" class="btn-whatsapp-mini">💬 0995788404</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-brand">
-                <span class="logo-icon">◆</span>
-                <span class="nombre-empresa"></span>
-            </div>
-            <p class="footer-copy">© 2026 <span class="nombre-footer"></span></p>
-        </div>
-    </footer>
-
+    <!-- Vinculación del script de JavaScript -->
     <script src="script.js"></script>
-    <script src="script2.js"></script>
 </body>
 </html>
